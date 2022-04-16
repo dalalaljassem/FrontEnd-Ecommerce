@@ -3,11 +3,41 @@ nav {
   display: flex;
   justify-items: center;
   justify-content: space-between;
-  padding: var(--sizer-1);
-  background-color: var(--bkg);
   width: 100%;
   position: fixed;
-  z-index: 8;
+}
+
+
+.nav .nav--profile {
+  padding: 0 24px;
+}
+
+.nav .nav--profile .user-profile-pic {
+  width: 51px;
+  height: 51px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border 200ms ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .nav .nav--profile {
+      padding: 0 10px;
+  }
+
+  .nav .nav--cart {
+      padding: 0 10px;
+  }
+
+  .nav .nav--profile .user-profile-pic {
+      width: 24px;
+      height: 24px;
+  }
+}
+
+.nav .nav--profile .user-profile-pic:hover {
+  border: 2px solid orange;
 }
 
 .mainDiv {
@@ -16,21 +46,22 @@ nav {
   height: 100%;
   width: 90%;
   margin: 0px auto;
+  
 }
 .leftDiv {
-  background-color: #efefef;
+  /* background-color: #efefef; */
   color: #000;
   height: 400px;
   width: 48%;
   float: left;
 }
 .rightDiv {
-  background-color: #efefef;
   color: #000;
   height: 400px;
   width: 48%;
   float: right;
-}
+  overflow: hidden;
+font-size: 13px;}
 
 /* SLIDER SECTION */
 
@@ -47,11 +78,11 @@ nav {
 }
 
 #featured {
-  max-width: 500px;
+  max-width: 350px;
   max-height: 600px;
   object-fit: cover;
   cursor: pointer;
-  border: 2px solid black;
+  border-radius:25px;
 }
 
 .thumbnail {
@@ -61,7 +92,7 @@ nav {
   cursor: pointer;
   opacity: 0.5;
   margin: 5px;
-  border: 2px solid black;
+  border-radius:25px;
 }
 
 .thumbnail:hover {
@@ -70,6 +101,7 @@ nav {
 
 .active {
   opacity: 1;
+  max-width: 200px;
 }
 
 #slide-wrapper {
@@ -78,3 +110,23 @@ nav {
   min-height: 100px;
   align-items: center;
 }
+
+.left{
+  float: left;
+}
+
+.Right{
+  float: right;
+}
+
+.addToCart{
+  display: block;
+  overflow: hidden;
+  position: relative;
+  border: none;
+  background: rgb(238, 131, 70);
+  border-radius: 5px;
+  color: white;
+  font-size: 10px;
+}
+
