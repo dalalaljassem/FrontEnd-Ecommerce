@@ -15,37 +15,3 @@ for (var i=0; i < thumbnails.length; i++){
         document.getElementById('featured').src = this.src
     })
 }
-
-// Nav Menu Toggle
-const navMenuBtnEl = document.querySelector('.nav--menu');
-const mdNavEl = document.querySelector('.md-nav');
-const mdNavOverlay = document.querySelector('.md-nav-overlay');
-
-navMenuBtnEl.addEventListener('click', () => {
-    mdNavEl.classList.toggle('hidden');
-    mdNavOverlay.classList.toggle('hidden');
-
-    mdNavEl.classList.toggle('active');
-    mdNavOverlay.classList.toggle('active');
-})
-
-closeMenuBtn.addEventListener('click', () => {
-
-    mdNavEl.classList.toggle('hidden');
-    mdNavOverlay.classList.toggle('hidden');
-
-    mdNavEl.classList.toggle('active');
-    mdNavOverlay.classList.toggle('active');
-
-    
-})
-
-mdNavOverlay.addEventListener('click', () => {
-    mdNavEl.classList.toggle('hidden');
-    mdNavOverlay.classList.toggle('hidden');
-
-    mdNavEl.classList.toggle('active');
-    mdNavOverlay.classList.toggle('active');
-})
-// Cart Toggle Event
-const cartBtn = document.querySelector('.nav--cart');
