@@ -7,9 +7,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css">
   <script src="slider.js" type="module"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/b56fdf0990.js" crossorigin="anonymous"></script>
   <title>Frontend Mentor | E-commerce product page</title>
 </head>
@@ -18,12 +15,12 @@
 
 <!-------------------------- NavBar ----------------------->
 
-  <nav class="navbar navbar-expand-lg navbar-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" >
     <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#" style="font-weight: 400; font-size: 22px;">Sneakers</a>
+      <a class="navbar-brand" href="#">Sneakers</a>
 
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
@@ -45,17 +42,18 @@
         </ul>
        
       </div>
-    </div>
-    <button id="user-cart" class="nav--cart">
+    
+    <div id="user-cart" class="nav--cart" onclick="displaycart()" style="margin-right: 30px;">
       <img src="images/icon-cart.svg" alt="Your Cart">
       <span id="no-items" class="d-none"></span>
-    </button>
+    </div>
     
-    <div id="user-profile" class="nav--profile">
+    <div id="user-profile" class="nav--profile" style="margin-right: 30px;"> 
       <img class="user-profile-pic" src="images/image-avatar.png" alt="">
     </div>
+  </div>
   </nav>
-  <hr style="height:2px;border-width:0;color:gray;">
+
 
   <!-------------------------- Main Div ----------------------->
 <!-- Product pictures div -->
@@ -66,26 +64,39 @@
   
         <div id="slide-wrapper" >  
           <div id="slider">
-            <img class="thumbnail active" src="images/image-product-1.jpg">
-            <img class="thumbnail" src="images/image-product-2.jpg"> 
-            <img class="thumbnail" src="images/image-product-3.jpg">
-            <img class="thumbnail" src="images/image-product-4.jpg">
+            <img id="pop" class="thumbnail active" src="images/image-product-1.jpg">
+            <img id="pop" class="thumbnail" src="images/image-product-2.jpg"> 
+            <img id="pop" class="thumbnail" src="images/image-product-3.jpg">
+            <img id="pop" class="thumbnail" src="images/image-product-4.jpg">
           </div>
           </div>
-      
+
+      <!-- Creates the bootstrap modal where the image will appear
+<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Image preview</h4>
+      </div>
+      <div class="modal-body">
+        <img src="" id="imagepreview" style="width: 400px; height: 264px;" >
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div> -->
   
-      <div class="md-prev-btn d-lg-none arr-btn">
+      <!-- <div class="md-prev-btn d-lg-none arr-btn">
         <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg"><path class="arr-path" d="M11 1 3 9l8 8" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"/></svg>
       </div>
       <div class="md-next-btn d-lg-none arr-btn">
         <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg"><path class="arr-path" d="m2 1 8 8-8 8" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"/></svg>
-      </div>
-    </div>
-    <div class="product-thumbnails d-md-none">
-      
+      </div> -->
     </div>
 
-     
       <!-- product details -->
     </div>
     <div class="rightDiv" id="content-wrapper">
@@ -109,40 +120,59 @@
        <!-- add to cart section -->
     <div class="add-product">
       <div class="quantity">
-        <button onclick="decrement()" class="minus quantity-btn" disabled>
+        <div onclick="decrement()" class="minus quantity-btn" >
           <img src="./images/icon-minus.svg" alt="minus-quantity">
-        </button>
-        <span class="numberOfProduct"> 0 </span>
-        <button onclick="increment()" class="add quantity-btn">
+        </div>
+        <span  id = "numberOfProduct" class="numberOfProduct"> 0 </span>
+        <div onclick="increment()" class="add quantity-btn">
           <img src="./images/icon-plus.svg" alt="add-quantity">
-        </button>
+        </div>
       </div>
 
-      <button class="add-to-cart-btn d-flex-auto"> 
+      <button class="add-to-cart-btn d-flex-auto" onclick="addToCart()"> 
         <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z" fill="#ffffff" fill-rule="nonzero"/></svg>
         Add to cart
       </button>
     </div>
 
-  <div id="cartUI">
-    <h3>Cart</h3>
+    <div id="cartUI" style="display: none;" >
+      <div style="display :flex ; justify-content: space-between; align-items: center; margin-left: 15px;  margin-right: 25px; margin-top: 5px;">
+      <h6 >Cart</h6>
+     
+    </div>
     <hr>
-    <div class="items">
-      <div id="thumbnail"></div>
+      <div class="items">
+        
+    <div class="center">
+      <div id="item">
+      <p id="emptycart"  style="display: none;">Your cart is empty.</p>
 
-      <p id="titleName">Your cart is empty.</p>
-
-      <div class="pricing"></div>
-        <p id="price"></p>
-        <p id="itemQuantity"></p>
-        <h3><p id="overall"></p></h3>
+      <div id="fullcart  " class="itemsrow">
+      <img class= "trash" src="./images/image-product-1-thumbnail.jpg" alt="" style="width: 50px;" >
+     <div>
+      <h6>
+      Fall Limited Edition Sneakers
+     </h6>
+     <div id="price"></div>
+     </div>
+     <img src="./images/icon-delete.svg" alt="" onclick="empty()">
+    </div>
+    </div>
+    </div>
+        
+    
+      <button class="add-to-cart-btn" style="width: 90%; height: 100%; margin-top: 10px;">Checkout</button>
+        
+        
+        </div>
+    
       </div>
 
-    <button class="checkOut">Checkout</button>
-    </div>
-  </div>
-</div>
+      <div id="cartitems" class="itemsnum"  style="display: none;"></div>
+
     </div>
  </div> <!-- main div end -->
+
+ <script src="./slider.js"></script>
 </body>
 </html>

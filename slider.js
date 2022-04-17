@@ -43,7 +43,23 @@ let numberOfProduct = 0;
   
   function addToCart() {
     if (numberOfProduct !== 0) {
-//add to cart
+      let price = `<h7> 125.00 x` + numberOfProduct + `=`+ numberOfProduct*125+`</h7>`
+      document.getElementById("price").innerHTML = price
+      document.getElementById("cartitems").style.display = "block";
+      document.getElementById("cartitems").innerHTML = numberOfProduct;
+  
       }
 
+
   }
+
+ function displaycart()
+ {
+  document.getElementById("cartUI").style.display = "block";
+
+ }
+
+ $("#slider").on("click", function() {
+  $('#imagepreview').attr('src', $('#pop').attr('src')); // here asign the image to the modal when the user click the enlarge link
+  $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
+});
