@@ -15,7 +15,7 @@ Users should be able to:
 - Add items to the cart
 - View the cart and remove items from it
 ✨✨✨
-(./design/desktop1.png)
+![](./design/desktop1.png)
 
 
 ## My process
