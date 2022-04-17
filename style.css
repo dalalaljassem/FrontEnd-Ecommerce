@@ -12,10 +12,8 @@ nav {
   padding: 0 24px;
 }
 
-.nav .nav--profile .user-profile-pic {
-  width: 51px;
-  height: 51px;
-  border-radius: 50%;
+.user-profile-pic {
+  width: 50px;  border-radius: 50%;
   cursor: pointer;
   border: 2px solid transparent;
   transition: border 200ms ease-in-out;
@@ -31,8 +29,7 @@ nav {
   }
 
   .nav .nav--profile .user-profile-pic {
-      width: 24px;
-      height: 24px;
+      width: 10px;
   }
 }
 
@@ -40,12 +37,17 @@ nav {
   border: 2px solid orange;
 }
 
+
+
+
+/* main SECTION */
 .mainDiv {
   background-color: #006699;
   color: #fff;
   height: 100%;
   width: 90%;
-  margin: 0px auto;
+  margin: 10px auto;
+  
   
 }
 .leftDiv {
