@@ -1,7 +1,6 @@
+// making thumbnails move
 let thumbnails = document.getElementsByClassName('thumbnail')
-
 let activeImages = document.getElementsByClassName('active')
-
 for (var i=0; i < thumbnails.length; i++){
 
     thumbnails[i].addEventListener('mouseover', function(){
@@ -16,36 +15,35 @@ for (var i=0; i < thumbnails.length; i++){
     })
 }
 
-// Nav Menu Toggle
-const navMenuBtnEl = document.querySelector('.nav--menu');
-const mdNavEl = document.querySelector('.md-nav');
-const mdNavOverlay = document.querySelector('.md-nav-overlay');
+// cart stuff
+let numberOfProduct = 0;
+  function decrement() {
+    numberOfProduct--;
+    if (numberOfProduct < 0) {
+        let numberOfProduct = 0; }
+    document.getElementById("numberOfProduct").innerHTML = numberOfProduct;
+  }
+  
+  function increment() {
+    numberOfProduct++;
+    document.getElementById("numberOfProduct").innerHTML = numberOfProduct;
+  }
+  
+  function showItems() {
+    var items = document.getElementById("cartUI");
+  
+    if (items.style.display === "none") {
+        items.style.display = "block";
+      showCart = true;
+    } else {
+        items.style.display = "none";
+      showCart = true;
+    }
+  }
+  
+  function addToCart() {
+    if (numberOfProduct !== 0) {
+//add to cart
+      }
 
-navMenuBtnEl.addEventListener('click', () => {
-    mdNavEl.classList.toggle('hidden');
-    mdNavOverlay.classList.toggle('hidden');
-
-    mdNavEl.classList.toggle('active');
-    mdNavOverlay.classList.toggle('active');
-})
-
-closeMenuBtn.addEventListener('click', () => {
-
-    mdNavEl.classList.toggle('hidden');
-    mdNavOverlay.classList.toggle('hidden');
-
-    mdNavEl.classList.toggle('active');
-    mdNavOverlay.classList.toggle('active');
-
-    
-})
-
-mdNavOverlay.addEventListener('click', () => {
-    mdNavEl.classList.toggle('hidden');
-    mdNavOverlay.classList.toggle('hidden');
-
-    mdNavEl.classList.toggle('active');
-    mdNavOverlay.classList.toggle('active');
-})
-// Cart Toggle Event
-const cartBtn = document.querySelector('.nav--cart');
+  }
