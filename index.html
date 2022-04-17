@@ -88,8 +88,8 @@
     </div>
     <div class="rightDiv" id="content-wrapper">
       <div class="column">
-        <h6 style="color: rgb(248, 127, 28);">SNEAKER COMPANY</h6>
-        <h1 style="font-weight: bold;">Fall Limited Edition Sneakers</h1>
+        <h6 class="companyName" style="color: rgb(248, 127, 28);">SNEAKER COMPANY</h6>
+        <h1 class = "titleName" style="font-weight: bold;">Fall Limited Edition Sneakers</h1>
       
   <p>  These low-profile sneakers are your perfect casual wear companion. Featuring a 
     durable rubber outer sole, they’ll withstand everything the weather can offer.</p>  
@@ -107,11 +107,11 @@
        <!-- add to cart section -->
     <div class="add-product">
       <div class="quantity">
-        <button class="minus quantity-btn" disabled>
+        <button onclick="decrement()" class="minus quantity-btn" disabled>
           <img src="./images/icon-minus.svg" alt="minus-quantity">
         </button>
         <span class="numberOfProduct"> 0 </span>
-        <button class="add quantity-btn">
+        <button onclick="increment()" class="add quantity-btn">
           <img src="./images/icon-plus.svg" alt="add-quantity">
         </button>
       </div>
@@ -122,9 +122,25 @@
       </button>
     </div>
 
+  <div id="cartUI">
+    <h3>Cart</h3>
+    <hr>
+    <div class="items">
+      <div id="thumbnail"></div>
+
+      <p id="titleName">Your cart is empty.</p>
+
+      <div class="pricing"></div>
+        <p id="price"></p>
+        <p id="itemQuantity"></p>
+        <h3><p id="overall"></p></h3>
+      </div>
+
+    <button class="checkOut">Checkout</button>
+    </div>
+  </div>
 </div>
     </div>
  </div> <!-- main div end -->
-  
 </body>
 </html>
